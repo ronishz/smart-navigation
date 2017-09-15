@@ -1,0 +1,76 @@
+//Complete json file is an array
+//This array consists of group documents
+//Each group has member array
+
+
+[
+	{
+		"group_id": "1"
+		"num_of_members":"3"
+		"travel_mode":"driving"
+		"start_latitude":"19.4532"		//indicated source location(lat)-
+		"start_longitude":"71.3214"	    // & source lng of that paritcular group					
+		"members":
+				  [
+				  	{
+				  		"name":"Adesh tajane"
+				  		"latitude":"18.4532"
+				  		"longitude":"70.3214"
+				  	},
+
+				  	{
+				  		"name":"Ronish zadode"
+				  		"latitude":"18.4674"
+				  		"longitude":"70.2424"
+				  	},
+
+				  	{
+				  		"name":"Anand wani"
+				  		"latitude":"19.4532"
+				  		"longitude":"71.3214"
+				  	}
+				  ]	
+
+	},
+
+	{
+		"group_id": "2"
+		"num_of_members":"1"
+		"travel_mode":"bicycling"
+		"start_latitude":"20.4532"			//indicated source location(lat)-
+		"start_longitude":"69.3214"
+		"members":
+				  [
+				  	{
+				  		"name":"Swapnil dabade"
+				  		"latitude":"20.4532"
+				  		"longitude":"69.3214"
+				  	}
+				  ]	
+	},
+
+	{
+		"group_id": "3"
+		"num_of_members":"2"
+		"travel_mode":"transit"
+		"start_latitude":"21.4532"			
+		"start_longitude":"72.3214"
+		"members":
+				  [
+				  	{
+				  		"name":"Piyush khadse"
+				  		"latitude":"21.4532"
+				  		"longitude":"72.3214"
+				  	},
+
+				  	{
+				  		"name":"Shubham kadam"
+				  		"latitude":"16.4532"
+				  		"longitude":"73.3214"
+				  	}
+				  ]	
+	}
+
+]
+
+
