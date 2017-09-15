@@ -215,7 +215,7 @@ codes = 3
 print(kmeans(whitened,codes))
 '''
 from sklearn.cluster import KMeans
-km = KMeans(n_clusters=10,max_iter=100)
+km = KMeans(n_clusters=16,max_iter=100)
 print(km.fit(z))
 print(km.cluster_centers_)
 print(km.labels_)
@@ -223,18 +223,30 @@ cluster_labels=[]
 cluster_labels=km.labels_
 
 clusters = []
-for i in range(0,10):
+for i in range(0,16):
     temp2 = []
     for j in range(len(cluster_labels)):
         if(cluster_labels[j]==i):
             temp1 = {}
             temp1.update({'name':data[j]["name"]})
             temp1.update({'add':data[j]["address"]})
+            temp1.update({'mode':data[j]["mode"]})
+            temp1.update({'lat':data[j]["latitude"]})
+            temp1.update({'lng':data[j]["longitude"]})
             temp2.append(temp1)
     
     clusters.append(temp2)
         
 
-for i in clusters:
-    print(i)
+for i in range(0,len(clusters)):
+    #print(i)
+    temp_cluster = []
+    temp_cluster=clusters[i]
+    for j in range(0,len(temp_cluster)):
+        temp_dict = {}
+        temp_dict=temp_cluster[j]
+        
+        
+    
+    
 
