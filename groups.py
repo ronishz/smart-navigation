@@ -14,6 +14,20 @@ def findGroupId(dist):
 		return 18			
 
 
+def findDirection(lat,lng):
+	dest_lat=18.531206
+	dest_lng=73.855278
+	if((abs(lat-dest_lat)>abs(lng-dest_lng)) and lat>dest_lat):
+		return "N"
+	elif((abs(lat-dest_lat)>abs(lng-dest_lng)) and lat<dest_lat):
+		return "S"
+	elif((abs(lng-dest_lng)>abs(lat-dest_lat)) and lng<dest_lng):
+		return "W"
+	elif((abs(lng-dest_lng)>abs(lat-dest_lat)) and lng>dest_lng):
+		return "E"	
+
+
+
 
 
 g = []
@@ -29,7 +43,7 @@ for i in range(0,len(data)):
 	temp.update({'group_id':findGroupId(temp_dist)})
 	temp.update({'user_id':i+1})
 	g.append(temp)
-#print(g)
+print(g)
 '''
 temp_g=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 '''
@@ -39,18 +53,23 @@ for i in range(len(g)):
 	x-=1
 	grps[x].append(g[i]["user_id"])
 print(grps)
-'''
-temp=[]
+
+
+
 for i in range(0,len(grps)):
-		#temp=grps[i]
-		if(len(grps[i]))>1:
+		if(len(grps[i]))>=1:
 			for j in range(len(grps[i])):
 				temp_lat=0
 				temp_lng=0
-				temp_lat=data[grps[i][j]]["latitude"]
-				temp_lng=data[grps[i][j]]["longitude"]
-				print(temp_lat)
-				print(temp_lng)
-'''
-print(data[grps[17][0]]["latitude"])	
+				temp_lat=data[(grps[i][j])-1]["latitude"]
+				temp_lng=data[(grps[i][j])-1]["longitude"]
+
+				dir1=findDirection(float(temp_lat),float(temp_lng))
+				g[(grps[i][j])-1].update({'group_id':str(i+1)+dir1})
+				
+				#print(temp_lat)
+				#print(temp_lng)
+print(g)
+#print(data[grps[2][13]]["latitude"])	
+#print(len(grps[16]))
 	
