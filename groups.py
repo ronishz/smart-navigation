@@ -1,4 +1,5 @@
 import json
+import math
 f=open("final_location_data.json","r")
 data=json.load(f)
 data=data["dB"]
@@ -11,8 +12,25 @@ def findGroupId(dist):
 				return i//2
 
 	elif(dist>34):
-		return 18			
+		return 18	
 
+#lat2=
+#lat1=
+
+def angle(lat2,lng2):
+	lat1=18.531206
+	lng1=73.855278
+	#lat2=18.559128
+	#lng2=73.827482
+	y=math.sin(lng2-lng1)*math.cos(lat2)
+	x=math.cos(lat1)*math.sin(lat2)-math.sin(lat1)*math.cos(lat2)*math.cos(lng2-lng1);
+	brng=math.degrees(math.atan2(y,x))
+	bearings=["NE", "E", "SE", "S", "SW", "W", "NW", "N"]
+	index=brng-22.5
+	if(index<0):
+		index+=360
+	index=int(index//45)
+	return bearings[index]
 
 def findDirection(lat,lng):
 	dest_lat=18.531206
@@ -54,7 +72,7 @@ for i in range(len(g)):
 	grps[x].append(g[i]["user_id"])
 #print(grps)
 
-'''
+
 
 for i in range(0,len(grps)):
 		if(len(grps[i]))>=1:
@@ -64,26 +82,31 @@ for i in range(0,len(grps)):
 				temp_lat=data[(grps[i][j])-1]["latitude"]
 				temp_lng=data[(grps[i][j])-1]["longitude"]
 
-				dir1=findDirection(float(temp_lat),float(temp_lng))
+				dir1=angle(float(temp_lat),float(temp_lng))
 				g[(grps[i][j])-1].update({'group_id':str(i+1)+dir1})
 				
 				#print(temp_lat)
 				#print(temp_lng)
+		
 print(g)
+'''
 check=[]
 for i in range(len(g)):
 	check.append(g[i]["group_id"])
-check.sort()	
+check.sort()
+'''	
 #print(check)
 #print(data[grps[2][13]]["latitude"])	
 #print(len(grps[16]))
-'''
+
 for i in range(0,len(g)):
 	data[i].update({'group_id':g[i]['group_id']})
+
 
 f1=open("group_location_data.json","w")
 json.dump(data,f1)
 
+#print(angle())
 
 
 	
