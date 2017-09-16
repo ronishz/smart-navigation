@@ -72,4 +72,11 @@ for i in range(0,len(grps)):
 print(g)
 #print(data[grps[2][13]]["latitude"])	
 #print(len(grps[16]))
+for i in range(0,len(g)):
+	data[i].update({'group_id':g[i]['group_id']})
+
+f1=open("temp_location_data.json","w")
+json.dump(data,f1)
+
+
 	
