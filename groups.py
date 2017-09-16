@@ -43,7 +43,7 @@ for i in range(0,len(data)):
 	temp.update({'group_id':findGroupId(temp_dist)})
 	temp.update({'user_id':i+1})
 	g.append(temp)
-print(g)
+#print(g)
 '''
 temp_g=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 '''
@@ -52,9 +52,9 @@ for i in range(len(g)):
 	x=g[i]["group_id"]
 	x-=1
 	grps[x].append(g[i]["user_id"])
-print(grps)
+#print(grps)
 
-
+'''
 
 for i in range(0,len(grps)):
 		if(len(grps[i]))>=1:
@@ -70,13 +70,20 @@ for i in range(0,len(grps)):
 				#print(temp_lat)
 				#print(temp_lng)
 print(g)
+check=[]
+for i in range(len(g)):
+	check.append(g[i]["group_id"])
+check.sort()	
+#print(check)
 #print(data[grps[2][13]]["latitude"])	
 #print(len(grps[16]))
+'''
 for i in range(0,len(g)):
 	data[i].update({'group_id':g[i]['group_id']})
 
-f1=open("temp_location_data.json","w")
+f1=open("group_location_data.json","w")
 json.dump(data,f1)
+
 
 
 	
