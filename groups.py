@@ -94,18 +94,18 @@ check=[]
 for i in range(len(g)):
 	check.append(g[i]["group_id"])
 check.sort()
-'''	
-#print(check)
+	'''
+print(check)
 #print(data[grps[2][13]]["latitude"])	
 #print(len(grps[16]))
-
+'''
 for i in range(0,len(g)):
 	data[i].update({'group_id':g[i]['group_id']})
 
 
 f1=open("group_location_data.json","w")
 json.dump(data,f1)
-
+'''
 #print(angle())
 
 
