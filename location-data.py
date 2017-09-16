@@ -215,7 +215,7 @@ codes = 3
 print(kmeans(whitened,codes))
 '''
 from sklearn.cluster import KMeans
-km = KMeans(n_clusters=16,max_iter=100)
+km = KMeans(n_clusters=13,max_iter=100)
 print(km.fit(z))
 print(km.cluster_centers_)
 print(km.labels_)
@@ -223,7 +223,7 @@ cluster_labels=[]
 cluster_labels=km.labels_
 
 clusters = []
-for i in range(0,16):
+for i in range(0,13):
     temp2 = []
     for j in range(len(cluster_labels)):
         if(cluster_labels[j]==i):
@@ -233,20 +233,38 @@ for i in range(0,16):
             temp1.update({'mode':data[j]["mode"]})
             temp1.update({'lat':data[j]["latitude"]})
             temp1.update({'lng':data[j]["longitude"]})
+            temp1.update({'dist':data[j]["distance1"]})
             temp2.append(temp1)
     
     clusters.append(temp2)
         
-
+d1 = []
 for i in range(0,len(clusters)):
     #print(i)
     temp_cluster = []
+    temp_dist = []
     temp_cluster=clusters[i]
     for j in range(0,len(temp_cluster)):
         temp_dict = {}
+        
         temp_dict=temp_cluster[j]
-        
-        
-    
-    
+        temp_d=float(str(temp_dict['dist']).split()[0])
+        temp_dist.append(temp_d)
+        temp_dist.sort(key=int,reverse=True)
 
+    d1.append(temp_dist)    
+    
+print(d1)
+diff=[]
+temp_diff=[]
+for i in range(len(d1)):
+    temp_diff=d1[i]
+    if(len(temp_diff)>=2):
+        max_diff=temp_diff[1]-temp_diff[0]
+        for j in range(len(temp_diff)-2):
+            if((temp_diff[i]-temp_diff[i+1])>max_diff):
+                max_diff=temp_diff[i]-temp_diff[i+1]
+
+        
+        diff.append(max_diff)
+print(diff)    
