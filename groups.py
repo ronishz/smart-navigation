@@ -238,8 +238,8 @@ check.sort()
 #print(data[grps[2][13]]["latitude"])	
 #print(len(grps[16]))
 
-#for i in range(0,len(g)):
-#	data[i].update({'group_id':g[i]['group_id']})
+for i in range(0,len(g)):
+	data[i].update({'group_id':g[i]['group_id']})
 
 
 for i in range(0,len(g)):
