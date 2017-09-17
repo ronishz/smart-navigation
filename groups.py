@@ -236,7 +236,9 @@ check.sort()
 #	data[i].update({'group_id':g[i]['group_id']})
 
 
-
+for i in range(0,len(g)):
+	data[i].update({'start_id':g[i]['start_id']})
+	
 f1=open("start_location_data.json","w")
 json.dump(data,f1)
 
