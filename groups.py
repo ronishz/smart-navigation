@@ -150,7 +150,7 @@ for i in range(len(g)):
 			
 	grps_new[num][num1].append(g[i]["user_id"])
 
-print(grps_new)
+#print(grps_new)
 
 for i in range(0,len(grps_new)):
 		for j in range(len(grps_new[i])):
@@ -223,7 +223,7 @@ for i in range(0,len(grps_new)):
 
 				
 
-print(g)
+#print(g)
 
 
 
