@@ -7,7 +7,6 @@ api_key = 'AIzaSyA47CBshq2fOEMhtM15Mu7jj9QJ5O47YxU'
 gmaps = Client(api_key)
 
 
-
 a=[{"location_id":"387","zone_id":"11","name":"Aundh ","latitude":"18.558","longitude":"73.8075","city_id":"2","code":"","pincode":"411007"},
 {"location_id":"312","zone_id":"10","name":"Aundh Camp ","latitude":"18.5552","longitude":"73.8189","city_id":"2","code":"","pincode":"411027"},
 {"location_id":"388","zone_id":"11","name":"Aundh","latitude":"18.558","longitude":"73.8075","city_id":"2","code":"","pincode":"411007"},

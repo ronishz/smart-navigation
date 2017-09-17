@@ -15,6 +15,7 @@ g=geocoder.google(str(add)+"pune,IN")
 lat=float(g.latlng[0])
 lng=float(g.latlng[1])
 
+
 print("Latitude:	"+str(lat))
 print("Longitude:	"+str(lng))
 
