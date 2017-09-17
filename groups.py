@@ -76,15 +76,24 @@ for i in range(len(g)):
 
 for i in range(0,len(grps)):
 		if(len(grps[i]))>=1:
+			max_d=0
+			start_id1=0
 			for j in range(len(grps[i])):
 				temp_lat=0
 				temp_lng=0
 				temp_lat=data[(grps[i][j])-1]["latitude"]
 				temp_lng=data[(grps[i][j])-1]["longitude"]
+				temp_max=float((data[(grps[i][j])-1]["distance1"]).split()[0])
+				temp_start_id=grps[i][j]-1
+				if((temp_max)>float(max_d)):
+					max_d=temp_max
+					start_id1=temp_start_id
 
 				dir1=angle(float(temp_lat),float(temp_lng))
 				g[(grps[i][j])-1].update({'group_id':str(i+1)+dir1})
-				
+
+			for j in range(len(grps[i])):	
+				g[(grps[i][j])-1].update({'start_id':start_id1})
 				#print(temp_lat)
 				#print(temp_lng)
 		
@@ -99,11 +108,14 @@ check.sort()
 #print(data[grps[2][13]]["latitude"])	
 #print(len(grps[16]))
 
+#for i in range(0,len(g)):
+#	data[i].update({'group_id':g[i]['group_id']})
+
+
 for i in range(0,len(g)):
-	data[i].update({'group_id':g[i]['group_id']})
+	data[i].update({'start_id':g[i]['start_id']})
 
-
-f1=open("group_location_data.json","w")
+f1=open("start_location_data.json","w")
 json.dump(data,f1)
 
 #print(angle())
