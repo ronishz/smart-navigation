@@ -1,10 +1,9 @@
 import json
 import math
-f=open("group_location_data.json","r")
+f=open("start_location_data.json","r")
 data=json.load(f)
-data=data["dB"]
 
-def suggest_mode(two_wheeler_old,four_wheeler_old,bus_old,cab_old,total_num):
+def suggest_mode(two_wheeler_old,four_wheeler_old,bus_old,cab_old):
 	s_mode = [[],[],[],[]]
 	two_wheeler=len(two_wheeler_old)
 	four_wheeler=len(four_wheeler_old)
@@ -99,6 +98,7 @@ for i in range(0,len(data)):
 	
 	temp.update({'group_id':findGroupId(temp_dist)})
 	temp.update({'user_id':i+1})
+	temp.update({'mode':"None"})
 	g.append(temp)
 #print(g)
 '''
@@ -173,8 +173,9 @@ for i in range(0,len(grps_new)):
 
 
 for i in range(0,len(grps_new)):
+	if(len(grps_new[i])>=1):		
 		for j in range(len(grps_new[i])):
-			if(len(grps_new[i]))>=1:
+			
 				two_wheeler=0
 				four_wheeler=0
 				bus=0
@@ -183,24 +184,28 @@ for i in range(0,len(grps_new)):
 				two_wheeler_old = []
 				four_wheeler_old = []
 				bus_old = []
-				for k in range(len(grps_new[i][j])):
-					if(len(grps_new[i][j]))>=1:
-						if(data[(grps_new[i][j][k])-1]["mode"]=='2w'):
-							two_wheeler+=1
-							two_wheeler_old.append((grps_new[i][j][k])-1)
-						elif(data[(grps_new[i][j][k])-1]["mode"]=='4w'):
-							four_wheeler+=1
-							four_wheeler_old.append((grps_new[i][j][k])-1)
-						elif(data[(grps_new[i][j][k])-1]["mode"]=='bus'):
-							bus+=1
-							bus_old.append((grps_new[i][j][k])-1)
-						elif(data[(grps_new[i][j][k])-1]["mode"]=='cab'):
-							cab+=1
-							cab_old.append((grps_new[i][j][k])-1)
+				if(len(grps_new[i][j])>=1):
+					for k in range(len(grps_new[i][j])):
+						
+							if(data[(grps_new[i][j][k])-1]["mode"]=='2w'):
+								two_wheeler+=1
+								two_wheeler_old.append((grps_new[i][j][k])-1)
+							elif(data[(grps_new[i][j][k])-1]["mode"]=='4w'):
+								four_wheeler+=1
+								four_wheeler_old.append((grps_new[i][j][k])-1)
+							elif(data[(grps_new[i][j][k])-1]["mode"]=='bus'):
+								bus+=1
+								bus_old.append((grps_new[i][j][k])-1)
+							elif(data[(grps_new[i][j][k])-1]["mode"]=='cab'):
+								cab+=1
+								cab_old.append((grps_new[i][j][k])-1)
 
-
+				
+				'''for i in range(0,len(g)):
+					g[i].update({'mode':data[i]['mode']})
+'''
 				s_mode = []
-				s_mode=suggest_mode(two_wheeler_old,four_wheeler_old,bus_old,cab_old,len(grps_new[i][j]))
+				s_mode=suggest_mode(two_wheeler_old,four_wheeler_old,bus_old,cab_old)
 				for x in range(0,4):
 					for y in range(0,len(s_mode[x])):
 						for z in range(0,len(s_mode[x][y])):
@@ -237,8 +242,19 @@ check.sort()
 
 
 for i in range(0,len(g)):
-	data[i].update({'start_id':g[i]['start_id']})
+	try:
+		data[i].update({'start_id':g[i]['start_id']})	
+	except KeyError:
+		pass
+
 	
+
+for i in range(0,len(g)):
+	try:
+		data[i].update({'mode':g[i]['mode']})	
+	except KeyError:
+		pass
+
 f1=open("start_location_data.json","w")
 json.dump(data,f1)
 
