@@ -1,6 +1,7 @@
 import json
 import math
-f=open("start_location_data.json","r")
+import os
+f=open("final_location_data.json","r")
 data=json.load(f)
 
 def suggest_mode(two_wheeler_old,four_wheeler_old,bus_old,cab_old):
@@ -255,11 +256,9 @@ for i in range(0,len(g)):
 	except KeyError:
 		pass
 
+
 f1=open("start_location_data.json","w")
 json.dump(data,f1)
-
-
-#print(angle())
 
 
 	
