@@ -120,5 +120,6 @@ while True:
 	z+=1
 	os.system("python groups.py")
 	out=os.popen("git add * && git commit -m \"Add new entry\" && git push").read()
+	out_t="Add new entry"
 	if(out_t in out):
             print("New entries added in Database.\n")
