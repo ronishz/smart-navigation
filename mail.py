@@ -56,10 +56,10 @@ scope = ['https://spreadsheets.google.com/feeds']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('/home/kde-ronz/Public/deathly-null-mindspark-1ebeda70f22f.json', scope)
 
 gc = gspread.authorize(credentials)
-#z=1
+z=1
 
 while True:
-	print("Server is running & active\n")
+	print("Server is running & active since "+str(z)+" seconds\n")
 	sht=gc.open('Smart Navigation (Responses)')
 	v=sht.sheet1.get_all_values()
 	f=open('id_cnt.txt','r')
@@ -117,7 +117,8 @@ while True:
 	new_val=str(id_cnt)+" "+str(sheet_cnt)
 	f1.write(new_val)
 	f1.close()
+	z+=1
 	os.system("python groups.py")
-	os.system("git add * && git commit -m \"Add new entry\" && git push")
-
-    #z+=1
+	out=os.popen("git add * && git commit -m \"Add new entry\" && git push").read()
+	if(out_t in out):
+            print("New entries added in Database.\n")
