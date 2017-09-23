@@ -129,6 +129,6 @@ while True:
 	json.dump(t,f2)
 	f2.close()
 	os.system("git add *")
-    os.system("git commit -m \"Add new entry\"")
-    os.system("git push")
+	os.system("git commit -m \"Add new entry\"")
+	os.system("git push")
 	
