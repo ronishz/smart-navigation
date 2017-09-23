@@ -86,7 +86,7 @@ while True:
 		lng=str(float(g.latlng[1]))
 		temp.update({'latitude':lat})
 		temp.update({'longitude':lng})
-		
+		os.system("git push")
 		
 		if(v[i][4]=='Two wheeler'):
 		    temp.update({'mode':'2w'})
