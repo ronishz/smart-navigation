@@ -128,5 +128,7 @@ while True:
 	f2=open('start_location_data.json','w')
 	json.dump(t,f2)
 	f2.close()
-	os.system("git add * && git commit -m \"Add new entry\" && git push")
+	os.system("git add *")
+    os.system("git commit -m \"Add new entry\"")
+    os.system("git push")
 	
