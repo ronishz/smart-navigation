@@ -3,6 +3,7 @@ import json
 import random
 import geocoder
 import os
+import time
 import collections as co
 from googlemaps.client import Client
 from googlemaps.distance_matrix import distance_matrix
@@ -71,9 +72,6 @@ while True:
 	id_cnt=int(id_cnt)
 	sheet_cnt=int(sheet_cnt)
 	mail_list = []
-	os.system("git add *")
-	os.system("git commit -m \"Add new entry\"")
-	os.system("git push")
 	for i in range(sheet_cnt+1,len(v)):
 		temp = co.OrderedDict()
 		id_cnt+=1
@@ -131,6 +129,7 @@ while True:
 	f2=open('start_location_data.json','w')
 	json.dump(t,f2)
 	f2.close()
+	time.sleep(3)
 	os.system("git add *")
 	os.system("git commit -m \"Add new entry\"")
 	os.system("git push")
