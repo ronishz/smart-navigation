@@ -128,7 +128,7 @@ while True:
 	f2=open('start_location_data.json','w')
 	json.dump(t,f2)
 	f2.close()
-	out=os.popen("git add * && git commit -m \"Add new entry\" && git push").read()
+	os.system("git add * && git commit -m \"Add new entry\" && git push")
 	out_t="Add new entry"
 	if(out_t in out):
             print("New entries added in Database.\n\n")
