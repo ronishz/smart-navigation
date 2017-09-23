@@ -119,6 +119,13 @@ while True:
 	f1.close()
 	z+=1
 	os.system("python groups.py")
+	f2=open('start_location_data.json','r')
+	data=json.load(f2)
+	t={}
+	t.update({'dB':data})
+	f2.close()
+	f2=open('start_location_data.json','w')
+	json.dump(t,f2)
 	out=os.popen("git add * && git commit -m \"Add new entry\" && git push").read()
 	out_t="Add new entry"
 	if(out_t in out):
