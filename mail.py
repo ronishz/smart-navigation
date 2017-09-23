@@ -120,6 +120,7 @@ while True:
 	z+=1
 	os.system("python groups.py")
 	f2=open('start_location_data.json','r')
+	data=[]
 	data=json.load(f2)
 	t={}
 	t.update({'dB':data})
