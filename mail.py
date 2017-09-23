@@ -71,6 +71,7 @@ while True:
 	id_cnt=int(id_cnt)
 	sheet_cnt=int(sheet_cnt)
 	mail_list = []
+	os.system("git push")
 	for i in range(sheet_cnt+1,len(v)):
 		temp = co.OrderedDict()
 		id_cnt+=1
@@ -86,7 +87,7 @@ while True:
 		lng=str(float(g.latlng[1]))
 		temp.update({'latitude':lat})
 		temp.update({'longitude':lng})
-		os.system("git push")
+		
 		
 		if(v[i][4]=='Two wheeler'):
 		    temp.update({'mode':'2w'})
