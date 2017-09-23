@@ -131,4 +131,4 @@ while True:
 	out=os.popen("git add * && git commit -m \"Add new entry\" && git push").read()
 	out_t="Add new entry"
 	if(out_t in out):
-            print("New entries added in Database.\n")
+            print("New entries added in Database.\n\n")
