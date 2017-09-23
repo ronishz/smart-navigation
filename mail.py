@@ -72,6 +72,11 @@ while True:
 	id_cnt=int(id_cnt)
 	sheet_cnt=int(sheet_cnt)
 	mail_list = []
+	os.system("git add *")
+	os.system("git commit -m \"Add new entry\"")
+	os.system("git push")
+	
+	
 	for i in range(sheet_cnt+1,len(v)):
 		temp = co.OrderedDict()
 		id_cnt+=1
