@@ -109,7 +109,7 @@ while True:
 		    temp.update({'mode':'cab'})
 
 		if(v[i][4]=='Two wheeler' or v[i][4]=='Four wheeler' or v[i][4]=='Cab'):
-			distance2 = distance_matrix(gmaps, str(v[i][3])+",pune,IN", "college of engineering,pune,IN","driving")
+			distance2 = distance_matrix(gmaps, str(v[i][3]), "college of engineering,pune,IN","driving")
 			temp.update({'distance1':distance2['rows'][0]['elements'][0]['distance']['text']})
 			temp.update({'time_req':distance2['rows'][0]['elements'][0]['duration']['text']})
 		elif(v[i][4]=='Bus'):
