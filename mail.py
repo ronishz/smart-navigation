@@ -75,7 +75,7 @@ while True:
 	f_temp=open('temp.txt','w')
 	f_temp.write(str(z))
 	f_temp.close()
-	time.sleep(1)
+	#time.sleep(1)
 	#s="Add new entry "+str(id_cnt+1)
 	os.system("git add *")
 	os.system("git commit -m \"Add new entry\"")
@@ -139,11 +139,11 @@ while True:
 	f2=open('start_location_data.json','w')
 	json.dump(t,f2)
 	f2.close()
-	time.sleep(2)
+	#time.sleep(2)
 	#s="Add new entry "+str(id_cnt)
 	os.system("git add *")
 	os.system("git commit -m \"Add new entry\"")
 	os.system("git push")
-	time.sleep(1)
+	#time.sleep(1)
 	z+=1
 	
