@@ -92,12 +92,12 @@ while True:
 		temp.update({'id':id_cnt})
 		temp.update({'name':v[i][2]})
 		temp.update({'address':v[i][3]})
-		g=geocoder.google(str(v[i][3])+"pune,IN")
-		lat=str(float(g.latlng[0]))
-		lng=str(float(g.latlng[1]))
+		#g=geocoder.google(str(v[i][3])+",pune,IN")
+		g=gmaps.geocode(str(v[i][3])+",pune,IN")
+		lat=str(float(g[0]['geometry']['location']['lat']))
+		lng=str(float(g[0]['geometry']['location']['lng']))
 		temp.update({'latitude':lat})
 		temp.update({'longitude':lng})
-		
 		
 		if(v[i][4]=='Two wheeler'):
 		    temp.update({'mode':'2w'})
@@ -113,7 +113,7 @@ while True:
 			temp.update({'distance1':distance2['rows'][0]['elements'][0]['distance']['text']})
 			temp.update({'time_req':distance2['rows'][0]['elements'][0]['duration']['text']})
 		elif(v[i][4]=='Bus'):
-			distance2 = distance_matrix(gmaps, str(v[i][3])+",pune,IN", "college of engineering,pune,IN","driving")
+			distance2 = distance_matrix(gmaps, str(v[i][3])+",pune,IN", "college of engineering,pune,IN","transit")
 			temp.update({'distance1':distance2['rows'][0]['elements'][0]['distance']['text']})
 			temp.update({'time_req':distance2['rows'][0]['elements'][0]['duration']['text']})
 
