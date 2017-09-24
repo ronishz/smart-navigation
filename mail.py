@@ -72,8 +72,13 @@ while True:
 	id_cnt=int(id_cnt)
 	sheet_cnt=int(sheet_cnt)
 	mail_list = []
+	f_temp=open('temp.txt','w')
+	f_temp.write(z)
+	f_temp.close()
+	time.sleep(1)
+	s="Add new entry "+str(id_cnt+1)+" "
 	os.system("git add *")
-	os.system("git commit -m \"Add new entry\"")
+	os.system("git commit -m "+s)
 	os.system("git push")
 	
 	
@@ -123,7 +128,7 @@ while True:
 	new_val=str(id_cnt)+" "+str(sheet_cnt)
 	f1.write(new_val)
 	f1.close()
-	z+=1
+	
 	os.system("python groups.py")
 	f2=open('start_location_data.json','r')
 	data=[]
@@ -134,8 +139,11 @@ while True:
 	f2=open('start_location_data.json','w')
 	json.dump(t,f2)
 	f2.close()
-	time.sleep(3)
+	time.sleep(2)
+	s="Add new entry "+str(id_cnt)+" "
 	os.system("git add *")
-	os.system("git commit -m \"Add new entry\"")
+	os.system("git commit -m "+s)
 	os.system("git push")
+	time.sleep(1)
+	z+=1
 	
