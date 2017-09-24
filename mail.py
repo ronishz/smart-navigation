@@ -93,7 +93,7 @@ while True:
 		temp.update({'name':v[i][2]})
 		temp.update({'address':v[i][3]})
 		#g=geocoder.google(str(v[i][3])+",pune,IN")
-		g=gmaps.geocode(str(v[i][3])+",pune,IN")
+		g=gmaps.geocode(str(v[i][3]))
 		lat=str(float(g[0]['geometry']['location']['lat']))
 		lng=str(float(g[0]['geometry']['location']['lng']))
 		temp.update({'latitude':lat})
