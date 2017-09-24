@@ -113,7 +113,7 @@ while True:
 			temp.update({'distance1':distance2['rows'][0]['elements'][0]['distance']['text']})
 			temp.update({'time_req':distance2['rows'][0]['elements'][0]['duration']['text']})
 		elif(v[i][4]=='Bus'):
-			distance2 = distance_matrix(gmaps, str(v[i][3])+",pune,IN", "college of engineering,pune,IN","transit")
+			distance2 = distance_matrix(gmaps, str(v[i][3]), "college of engineering,pune,IN","transit")
 			temp.update({'distance1':distance2['rows'][0]['elements'][0]['distance']['text']})
 			temp.update({'time_req':distance2['rows'][0]['elements'][0]['duration']['text']})
 
