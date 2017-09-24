@@ -73,12 +73,12 @@ while True:
 	sheet_cnt=int(sheet_cnt)
 	mail_list = []
 	f_temp=open('temp.txt','w')
-	f_temp.write(z)
+	f_temp.write(str(z))
 	f_temp.close()
 	time.sleep(1)
-	s="Add new entry "+str(id_cnt+1)+" "
+	#s="Add new entry "+str(id_cnt+1)
 	os.system("git add *")
-	os.system("git commit -m "+s)
+	os.system("git commit -m \"Add new entry\"")
 	os.system("git push")
 	
 	
@@ -140,9 +140,9 @@ while True:
 	json.dump(t,f2)
 	f2.close()
 	time.sleep(2)
-	s="Add new entry "+str(id_cnt)+" "
+	#s="Add new entry "+str(id_cnt)
 	os.system("git add *")
-	os.system("git commit -m "+s)
+	os.system("git commit -m \"Add new entry\"")
 	os.system("git push")
 	time.sleep(1)
 	z+=1
