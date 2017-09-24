@@ -39,7 +39,7 @@ def send_id(email,id_num):
     # setup the parameters of the message
     msg['From']=MY_ADDRESS
     msg['To']=email
-    msg['Subject']="Smart Navigation - Allotment of ID"
+    msg['Subject']="Smart Navigation - Allotment of ID (Try Login after 30 seconds.)"
 
     message="Hello "+email.split('@')[0]+",\n\nYour User ID is:    "+str(id_num)+"\nLogin via our Smart Navigation App to view and track your members.\nThank,you!\n\nThis mail is auto sent via python."
     # add in the message body
