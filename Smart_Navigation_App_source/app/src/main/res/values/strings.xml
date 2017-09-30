@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Samrt_Nav</string>
+    <string name="title_activity_enter_data">Map</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
