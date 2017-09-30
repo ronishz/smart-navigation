@@ -59,8 +59,7 @@ def findGroupId(dist):
 def angle(lat2,lng2):
 	lat1=18.531206
 	lng1=73.855278
-	#lat2=18.559128
-	#lng2=73.827482
+
 	y=math.sin(lng2-lng1)*math.cos(lat2)
 	x=math.cos(lat1)*math.sin(lat2)-math.sin(lat1)*math.cos(lat2)*math.cos(lng2-lng1);
 	brng=math.degrees(math.atan2(y,x))
@@ -91,20 +90,13 @@ g = []
 for i in range(0,len(data)):
 	temp={}
 	temp_dist=float(str(data[i]["distance1"]).split()[0])
-	
 
-	#print(findGroupId(temp_dist))
-	#g.append(findGroupId(temp_dist))
-	#print(set(g))
 	
 	temp.update({'group_id':findGroupId(temp_dist)})
 	temp.update({'user_id':i+1})
 	temp.update({'mode':"None"})
 	g.append(temp)
-#print(g)
-'''
-temp_g=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-'''
+
 grps=[[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[],[]]
 for i in range(len(g)):
 	x=g[i]["group_id"]
@@ -202,9 +194,7 @@ for i in range(0,len(grps_new)):
 								cab_old.append((grps_new[i][j][k])-1)
 
 				
-				'''for i in range(0,len(g)):
-					g[i].update({'mode':data[i]['mode']})
-'''
+
 				s_mode = []
 				s_mode=suggest_mode(two_wheeler_old,four_wheeler_old,bus_old,cab_old)
 				for x in range(0,4):
@@ -219,26 +209,7 @@ for i in range(0,len(grps_new)):
 							elif(x==3):
 								g[(s_mode[x][y][z])-1].update({'mode':'cab_shared'})
 
-												
 
-				
-
-#print(g)
-
-
-
-
-
-#print(g)
-'''
-check=[]
-for i in range(len(g)):
-	check.append(g[i]["group_id"])
-check.sort()
-	'''
-#print(check)
-#print(data[grps[2][13]]["latitude"])	
-#print(len(grps[16]))
 
 for i in range(0,len(g)):
 	data[i].update({'group_id':g[i]['group_id']})
