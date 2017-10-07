@@ -1,0 +1,219 @@
+// Retrivieng each group members name
+
+
+
+
+
+public class homepage extends AppCompatActivity {
+    public static final String EXTRA_MESSAGEm = "com.gpwallet.MESSAGE";
+    public static final String EXTRA_MESSAGEm2 = "com.gpwallet.MESSAGE2";
+    public static final String EXTRA_MESSAGEm5 = "com.gpwallet.MESSAGE5";
+    public static final String EXTRA_MESSAGEm6 = "com.gpwallet.MESSAGE6";
+    public static final String EXTRA_MESSAGEm7 = "com.gpwallet.MESSAGE7";
+    public static final String EXTRA_MESSAGEm8 = "com.gpwallet.MESSAGE8";
+
+
+    private ProgressDialog pDialog;
+    String n1,n2,n3,n4;
+    String uname;
+    String[] arr={"Ruturaj","Tahoor","Kunal","Pratik","aassss"};
+    String bal="0";
+    String ubal="0";
+    byte[] buffer;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_hompage);
+        Intent intent = getIntent();
+        Bundle extras = intent.getExtras();
+        uname = extras.getString(MainActivity.EXTRA_MESSAGEm3);
+        new GetContacts().execute();
+
+    }
+
+
+
+
+    public void update(View view){
+        Intent in =new Intent(this,update.class);
+
+        in.putExtra(EXTRA_MESSAGEm2,uname);
+        in.putExtra(EXTRA_MESSAGEm5,n1);
+        in.putExtra(EXTRA_MESSAGEm6,n2);
+        in.putExtra(EXTRA_MESSAGEm7,n3);
+        in.putExtra(EXTRA_MESSAGEm8,n4);
+        startActivity(in);
+    }
+    public void usrbal(View view){
+        Intent in =new Intent(this,Usrbal.class);
+        in.putExtra(EXTRA_MESSAGEm2,uname);
+        startActivity(in);
+    }
+    class GetContacts extends AsyncTask<Void, Void, Void> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+
+            // Showing progress dialog
+            pDialog = new ProgressDialog(homepage.this);
+            pDialog.setMessage("Please wait...");
+            pDialog.setCancelable(false);
+            pDialog.show();
+        }
+
+        @Override
+        protected Void doInBackground(Void... arg0) {
+
+            FirebaseDatabase db = FirebaseDatabase.getInstance();
+            DatabaseReference ref = db.getReference("dB").child(uname).child("g1");
+            DatabaseReference ref1 = db.getReference("dB").child(uname).child("g2");
+            DatabaseReference ref3 = db.getReference("dB").child(uname).child("g3");
+            DatabaseReference ref4 = db.getReference("dB").child(uname).child("g4");
+
+            // Attach listener
+            ref.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Retrieve latest value
+                    n1=dataSnapshot.getValue(String.class);
+                    TextView e=(TextView) findViewById(R.id.textView7);
+                    e.setText(n1);
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Error handling
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(homepage.this);
+                    alertDialogBuilder.setTitle("ERROR");
+                    alertDialogBuilder.setMessage("DAta not fetched");
+                    alertDialogBuilder.show();
+                }
+            });
+            ref1.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Retrieve latest value
+                    n2=(dataSnapshot.getValue(String.class));
+                    TextView e1=(TextView) findViewById(R.id.textView8);
+                    e1.setText(n2);
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Error handling
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(homepage.this);
+                    alertDialogBuilder.setTitle("ERROR");
+                    alertDialogBuilder.setMessage("DAta not fetched");
+                    alertDialogBuilder.show();
+                }
+            });
+
+            ref3.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Retrieve latest value
+                    n3=(dataSnapshot.getValue(String.class));
+                    TextView e3=(TextView) findViewById(R.id.textView9);
+                    e3.setText(n3);
+
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Error handling
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(homepage.this);
+                    alertDialogBuilder.setTitle("ERROR");
+                    alertDialogBuilder.setMessage("DAta not fetched");
+                    alertDialogBuilder.show();
+                }
+            });
+
+            ref4.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Retrieve latest value
+                    n4=(dataSnapshot.getValue(String.class));
+                    TextView e4=(TextView) findViewById(R.id.textView10);
+                    e4.setText(n4);
+
+
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                    // Error handling
+                    AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(homepage.this);
+                    alertDialogBuilder.setTitle("ERROR");
+                    alertDialogBuilder.setMessage("DAta not fetched");
+                    alertDialogBuilder.show();
+                }
+            });
+
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            if (pDialog.isShowing())
+                pDialog.dismiss();
+
+
+
+
+
+        }
+    }
+}
+
+// Updating specific entries
+
+ FirebaseDatabase db = FirebaseDatabase.getInstance();
+
+                DatabaseReference ref = db.getReference("dB").child(uname).child("ubal"); // Key
+                DatabaseReference ref1 = db.getReference("dB").child(uname).child("gbal"); // Key
+                DatabaseReference ref3 = db.getReference("dB").child(n1).child("gbal");
+                DatabaseReference ref4 = db.getReference("dB").child(n2).child("gbal");
+                DatabaseReference ref5 = db.getReference("dB").child(n3).child("gbal");
+                DatabaseReference ref6 = db.getReference("dB").child(n4).child("gbal");
+
+                ref.setValue(Ubal.toString());
+
+                ref1.setValue(gball.toString());
+                ref3.setValue(gball.toString());
+                ref4.setValue(gball.toString());
+                ref5.setValue(gball.toString());
+                ref6.setValue(gball.toString());
+
+// Creating new entries
+
+
+                        name=email.split("@");
+                        String temp=name[0];
+                        EditText em1=(EditText) findViewById(R.id.ubal);
+                        ubal=em1.getText().toString();
+                        EditText em2=(EditText) findViewById(R.id.gbal);
+                        gbal=em2.getText().toString();
+                        EditText em3=(EditText) findViewById(R.id.editText4);
+                        g1=em3.getText().toString();
+                        EditText em4=(EditText) findViewById(R.id.editText5);
+                        g2=em4.getText().toString();
+                        EditText em5=(EditText) findViewById(R.id.editText6);
+                        g3=em5.getText().toString();
+                        EditText em6=(EditText) findViewById(R.id.bala);
+                        g4=em6.getText().toString();
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference("dB");
+                        mDatabase.child(temp).child("ubal").setValue(ubal);
+                        mDatabase.child(temp).child("gbal").setValue(gbal);
+                        mDatabase.child(temp).child("g1").setValue(g1);
+                        mDatabase.child(temp).child("g2").setValue(g2);
+                        mDatabase.child(temp).child("g3").setValue(g3);
+                        mDatabase.child(temp).child("g4").setValue(g4);

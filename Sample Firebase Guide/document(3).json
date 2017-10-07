@@ -1,0 +1,85 @@
+{
+  "dB": {
+    "a": {
+      "ubal": "000",
+      "gbal":"0000",
+      "g1":"b@a.com",
+      "g2":"c@a.com",
+      "g3":"d@a.com",
+      "g4":"e@a.com"
+      
+    },
+    "b": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"a@a.com",
+      "g2":"c@a.com",
+      "g3":"d@a.com",
+      "g4":"e@a.com"
+    },
+    "c": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"a@a.com",
+      "g2":"b@a.com",
+      "g3":"d@a.com",
+      "g4":"e@a.com"
+    },
+    "d": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"b@a.com",
+      "g2":"c@a.com",
+      "g3":"a@a.com",
+      "g4":"e@a.com"
+    },
+    "e": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"b@a.com",
+      "g2":"c@a.com",
+      "g3":"d@a.com",
+      "g4":"a@a.com"
+    },
+    "f": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"g@a.com",
+      "g2":"h@a.com",
+      "g3":"i@a.com",
+      "g4":"j@a.com"
+    },
+    "g": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"f@a.com",
+      "g2":"g@a.com",
+      "g3":"h@a.com",
+      "g4":"j@a.com"
+    },
+    "h": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"f@a.com",
+      "g2":"g@a.com",
+      "g3":"j@a.com",
+      "g4":"i@a.com"
+    },
+    "i": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"f@a.com",
+      "g2":"g@a.com",
+      "g3":"h@a.com",
+      "g4":"j@a.com"
+    },
+    "j": {
+	    "ubal": "000",
+      "gbal":"0000",
+      "g1":"f@a.com",
+      "g2":"g@a.com",
+      "g3":"h@a.com",
+      "g4":"i@a.com"
+    }
+  }
+}
